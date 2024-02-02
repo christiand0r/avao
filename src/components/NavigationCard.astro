@@ -1,0 +1,24 @@
+---
+type Props = {
+  title: string;
+  text?: string;
+  to: string;
+  type: 'base' | 'light'
+};
+
+const { title, text, to, type = 'base' } = Astro.props;
+
+const map_classes = {
+  base: 'bg-indigo-dye text-white',
+  light: 'bg-bone text-gunmetal'
+}
+---
+
+<article class:list={['p-6 rounded-tr-2xl rounded-tl-2xl min-h-36 max-w-96 w-full', map_classes[type]]}>
+  <a href={to}>
+    <h3 class="font-extrabold text-3xl">{title}</h3>
+    {text && <p>{text}</p>}
+  </a>
+</article>
+
+<style></style>
